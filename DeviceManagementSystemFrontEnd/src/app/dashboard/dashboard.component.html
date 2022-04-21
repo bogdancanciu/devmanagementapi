@@ -1,0 +1,38 @@
+<div class="flex-parent-element">
+    <div class="flex-child-element">
+        <h2>Devivces</h2>
+        <table class="cinereousTable">
+        <thead>
+            <tr>
+            <th>Device Name</th>
+            <th>User name</th>
+            <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let device of devices; let i = index'>
+                <td>{{device.Name}}</td>
+                <td *ngIf="device.User?.Name != undefined; else elseContent">{{device.User?.Name}}</td>
+                <ng-template #elseContent>
+                    <td>No user assigned</td>
+                </ng-template>
+                <td>
+                    <button (click) = "editClick(i)" class="beautyButton">Edit</button>
+                    <button (click) = "deleteClick(i)" class="beautyButton">Delete</button>
+                    <button (click) = "detailsClick(device.Id)" class="beautyButton">View Details</button>
+                </td>
+            </tr>
+        </table>
+        <button style = "margin-left: 10px;" (click) = "addClick()" class="beautyButton">Add new device</button>
+    </div>
+    <div *ngIf="edit == false && add == false && view == false" class="flex-child-element"></div>
+    <div *ngIf="add" class="flex-child-element">
+        <app-add-device></app-add-device>
+    </div>
+    <div *ngIf="edit" class="flex-child-element">
+        <app-edit-device [deviceToEdit] = "currentDevice"></app-edit-device>
+    </div>
+    <div *ngIf="view" class="flex-child-element">
+        <app-view-device [deviceId] = "deviceToViewId"></app-view-device>
+    </div>
+</div>

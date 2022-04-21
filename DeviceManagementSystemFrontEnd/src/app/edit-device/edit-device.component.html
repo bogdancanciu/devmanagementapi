@@ -1,0 +1,28 @@
+<h2 style="text-align: left">Edit device panel</h2>
+<form>  
+    <label>Device name: </label> <br>  
+    <input #name type="text" required value = {{deviceToEdit.Name}}> <br>
+    <label>Manufacturer:</label> <br>  
+    <input #manufacturer type="text" required value = {{deviceToEdit.Manufacturer}}> <br>
+    <label>Type: </label> <br>  
+    <input #type type="text" required value = {{deviceToEdit.Type}}> <br>
+    <label>Operating system:</label> <br>  
+    <input #os type="text" required value = {{deviceToEdit.OS}}> <br>
+    <label>Operating system version: </label> <br>  
+    <input #osversion type="text" required value = {{deviceToEdit.OSVersion}}> <br>
+    <label>Processor:</label> <br>  
+    <input #processor type="text" required value = {{deviceToEdit.Processor}}> <br>
+    <label>RAM Amount: </label> <br>  
+    <input #ram type="text" required value = {{deviceToEdit.RAM}}> <br>
+    <label>Assign a user:</label>
+    <select #selectedUser>
+        <option value="null">No user</option>
+        <ng-container *ngFor="let user of users; let i = index">  
+            <option *ngIf="user.Id == deviceToEdit.Id_User; else elseContent" selected [value]="i">{{user.Name}}</option>
+            <ng-template #elseContent>
+                <option [value]="i">{{user.Name}}</option>
+            </ng-template>
+        </ng-container>
+    </select> <br>
+    <button type = 'button' class="beautyButton" (click) = 'editDeviceClick(name.value,manufacturer.value,type.value, os.value, osversion.value, processor.value, ram.value, selectedUser.value)'>Edit device</button>  
+</form> 

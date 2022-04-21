@@ -1,0 +1,7 @@
+h1 {
+    background: #6FC9CE;
+    background: -moz-linear-gradient(45deg, #6FC9CE 0%, #4CA491 50%, #59C5B1 100%);
+    background: -webkit-linear-gradient(45deg, #6FC9CE 0%, #4CA491 50%, #59C5B1 100%);
+    background: linear-gradient(45deg, #6FC9CE 0%, #4CA491 50%, #59C5B1 100%);
+    text-align: center;
+}

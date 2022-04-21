@@ -1,0 +1,22 @@
+<h2 style="text-align: left">Device details</h2>
+<form>  
+    <label>Device name: </label> <br>  
+    <input type="text" readonly value = {{deviceToView.Name}}> <br>
+    <label>Manufacturer:</label> <br>  
+    <input type="text" readonly value = {{deviceToView.Manufacturer}}> <br>
+    <label>Type: </label> <br>  
+    <input type="text" readonly value = {{deviceToView.Type}}> <br>
+    <label>Operating system:</label> <br>  
+    <input type="text" readonly value = {{deviceToView.OS}}> <br>
+    <label>Operating system version: </label> <br>  
+    <input type="text" readonly value = {{deviceToView.OSVersion}}> <br>
+    <label>Processor:</label> <br>  
+    <input type="text" readonly value = {{deviceToView.Processor}}> <br>
+    <label>RAM Amount: </label> <br>  
+    <input type="text" readonly value = {{deviceToView.RAM}}> <br>
+    <label>User:</label> <br>
+    <input *ngIf = "deviceToView.User?.Name; else elseContent" readonly type="text" value = {{deviceToView.User?.Name}}>
+    <ng-template #elseContent>
+        <input readonly value = "No user assigned">
+    </ng-template>
+</form> 

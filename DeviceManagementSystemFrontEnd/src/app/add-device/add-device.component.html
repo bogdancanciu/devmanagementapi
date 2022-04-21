@@ -1,0 +1,19 @@
+<h2 style="text-align: left">Add new device</h2>
+<form>  
+    <label>Device name: </label> <br>  
+    <input #name type="text" required> <br>
+    <label>Manufacturer:</label> <br>  
+    <input #manufacturer type="text" required> <br>
+    <label>Type: </label> <br>  
+    <input #type type="text" required> <br>
+    <label>Operating system:</label> <br>  
+    <input #os type="text" required> <br>
+    <label>Operating system version: </label> <br>  
+    <input #osversion type="text" required> <br>
+    <label>Processor:</label> <br>  
+    <input #processor type="text" required> <br>
+    <label>RAM Amount: </label> <br>  
+    <input #ram type="text" required> <br>
+    <button type = 'button' class="beautyButton" (click) = 'addDeviceClick(name.value,manufacturer.value,type.value, os.value, osversion.value, processor.value, ram.value)'>Add device</button>  
+</form> 
+
